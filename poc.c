@@ -30,7 +30,7 @@ void WriteRegistry(HKEY hKey, LPCTSTR keyPath, LPCTSTR valueName, DWORD data) {
 
 DWORD GetVolumeSerial() {
     DWORD serial = 0;
-    GetVolumeInformation((LPCWSTR)"C:\\", NULL, 0, &serial, NULL, NULL, NULL, 0);
+    GetVolumeInformationW(L"C:\\", NULL, 0, &serial, NULL, NULL, NULL, 0); 
     return serial;
 }
 void GenerateLicense() {
