@@ -30,7 +30,7 @@ void WriteRegistry(HKEY hKey, LPCTSTR keyPath, LPCTSTR valueName, DWORD data) {
 
 DWORD GetVolumeSerial() {
     DWORD serial = 0;
-    GetVolumeInformation("C:\\", NULL, 0, &serial, NULL, NULL, NULL, 0);
+    GetVolumeInformation((LPCWSTR)"C:\\", NULL, 0, &serial, NULL, NULL, NULL, 0);
     return serial;
 }
 void GenerateLicense() {
@@ -65,7 +65,7 @@ void GenerateRegistryKey(DWORD serial, int appVersion) {
 
 int main() {
     srand((unsigned int)time(NULL));
-    DWORD appVer = ParseAppVersion((LPCTSTR)ReadRegistry(HKEY_CURRENT_USER, "Software\\MadeForNet\\HTTPDebuggerPro", "AppVer"));
+    DWORD appVer = ParseAppVersion((LPCTSTR)ReadRegistry(HKEY_CURRENT_USER, (LPCTSTR)"Software\\MadeForNet\\HTTPDebuggerPro", (LPCTSTR)"AppVer"));
     DWORD serialNum = GetVolumeSerial();
     GenerateRegistryKey(serialNum, (int)appVer);
 
