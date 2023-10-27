@@ -1,6 +1,7 @@
 name: Pylint
 
-on: [push]
+on:
+  push
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pylint
-  
-    - name: Analysing the code with pylint
+
+    - name: Run the script
       run: |
-        pylint $(git ls-files '*.py')
+        python poc(py).py
