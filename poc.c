@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <Windows.h>
-
+#include <time.h> 
 DWORD ReadRegistry(HKEY hKey, LPCTSTR keyPath, LPCTSTR valueName) {
     DWORD data = 0;
     HKEY regKey;
